@@ -1,6 +1,6 @@
 "use strict";
 
-const Product = require("../model/product");
+const Product = require("../models/product");
 
 
 exports.index = (req, res) => {
