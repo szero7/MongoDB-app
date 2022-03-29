@@ -24,9 +24,7 @@ app.use(express.static("public"));
 app.set("layout", "./layouts/myLayouts");
 app.use(expressLayouts);
 
-app.get("/", (req, res) => {
-    res.render("index");
-});
+
 
 
 //routes
