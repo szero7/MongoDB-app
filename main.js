@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const methodOverride = require("method-override");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
+const Product = require("./model/product");
 const productsRoutes = require("./routes/products");
 
 dotenv.config({ path: "./configuration.env" });
