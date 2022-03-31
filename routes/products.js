@@ -9,4 +9,15 @@ router.get("/new", homeController.getNew);
 router.get("/search", homeController.getSearch);
 
 
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
