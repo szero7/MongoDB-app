@@ -1,3 +1,4 @@
+<%- include('partials/header') -%>
 <div class="container mt-5">
     <table class="table  table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
@@ -9,12 +10,22 @@
             </tr>
         </thead>
         <tbody>
+            <% Products.ForEach((Product)=> { %>
             <tr>
-                <td>c01</td>
-                <td>Blabla</td>
-                <td>120 $</td>
-                <td>Blaaaaaaa</td>
+                <td><%= Product.code %></td>
+                <td><%= Product.description %></td>
+                <td><%= Product.price %></td>
             </tr>
+       <% }) %>
         </tbody>
+        <tfoot>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Operations</th>
+            </tr>
+        </tfoot>
     </table>
 </div>
+<%- include('partials/footer') -%>

@@ -1,0 +1,11 @@
+<%- include('partials/header') -%>
+<div>
+    <form action="/index" method="post" style="width: 50%; margin:auto"><br><br>
+        <h2>Add New Product </h2>
+        <input name="code" type="text" class="form-control" placeholder="Product code">
+        <input name="description" type="text" class="form-control" placeholder="Product description">
+        <input name="price" type="text" class="form-control" placeholder="Product price">
+        <button style="background-color: aqua;" class="form-control" type="submit">Add to Database</button>
+    </form>
+</div>
+<%- include('partials/footer') -%>
