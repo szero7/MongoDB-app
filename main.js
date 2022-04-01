@@ -35,5 +35,5 @@ app.use(productsRoutes);
 //port
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
-    console.log(`Server has started and is listening at port ${port}`);
+    console.log(`Server has started and is listening at http://localhost:${port}`);
 });

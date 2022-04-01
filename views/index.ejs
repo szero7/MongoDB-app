@@ -5,16 +5,22 @@
                 <th>Code</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>c01</td>
-                <td>Blabla</td>
-                <td>120 $</td>
-                <td>Blaaaaaaa</td>
-            </tr>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td>
+                        <%= product.code %>
+                    </td>
+                    <td>
+                        <%= product.description %>
+                    </td>
+                    <td>
+                        <%= product.price %>
+                    </td>
+                </tr>
+                <% }) %>
         </tbody>
     </table>
 </div>
