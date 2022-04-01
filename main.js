@@ -9,9 +9,15 @@ const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const Product = require("./models/product");
 const productsRoutes = require("./routes/products");
-
 dotenv.config({ path: "./config.env" });
-mongoose.connect(process.env.DATABASE_LOCAL, { useNewUrlParser: true });
+
+
+const DATABASE_LOCAL = process.env.DATABASE_LOCAL; { title: "Product database system" }
+mongoose.connect(process.env.DATABASE_LOCAL, { useNewUrlParser: true }).then(() => {
+    console.log(`Vous etes connecté sur notre base de données ${DATABASE_LOCAL}`);
+}).catch(() => {
+    console.log(`Vous n'etes pas connecté sur notre base de données ${DATABASE_LOCAL}`);
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -29,7 +35,6 @@ app.use(expressLayouts);
 
 //routes
 app.use(productsRoutes);
-
 
 
 //port
