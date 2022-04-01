@@ -1,28 +1,56 @@
+"use strict";
+
 const Product = require("../models/product");
 
 exports.getIndex = (req, res) => {
-    res.render("index", { title: "Product database system" });
+    const products = [{
+        code: "test code",
+        description: "test description",
+        price: "test price"
+    }];
+
+    res.render("index", { title: "Product Database System", products: products });
 };
 
-exports.saveProduct = (req, res) =>{
-    const code = req.body.code;
-    const description = req.body.description;
-    const price = req.body.price;
+exports.addProduct = (req, res) => {
+    res.render("new", { title: "Add product" });
+};
 
-    const newProduct = new Product({code : code, description : description, price : price}); 
+exports.saveProduct = (req, res) => {
+
+    const newProduct = new Product({
+        code: req.body.code,
+        description: req.body.description,
+        price: req.body.price
+    });
     newProduct.save()
-    .then(()=>{
-        res.render("index")
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
+        .then(product => {
+            res.redirect("/"); // res.redirect(`/${products._id}`);
+        })
+        .catch(error => {
+            console.log(error);
+        });
 };
 
-exports.getNew = (req, res)=>{
-    res.render("new");
-};
+// exports.saveProduct = (req, res) =>{
+//     const code = req.body.code;
+//     const description = req.body.description;
+//     const price = req.body.price;
 
-exports.getSearch = (req, res)=>{
-    res.render("search");
-}
+//     const newProduct = new Product({code : code, description : description, price : price}); 
+//     newProduct.save()
+//     .then(()=>{
+//         res.render("index")
+//     })
+//     .catch((error)=>{
+//         console.log(error)
+//     })
+// };
+
+// exports.getNew = (req, res)=>{
+//     res.render("new");
+// };
+
+// exports.getSearch = (req, res)=>{
+//     res.render("search");
+// }
