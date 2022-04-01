@@ -10,11 +10,11 @@
             </tr>
         </thead>
         <tbody>
-            <% Products.ForEach((Product)=> { %>
+            <% data.ForEach((product) => { %>
             <tr>
-                <td><%= Product.code %></td>
-                <td><%= Product.description %></td>
-                <td><%= Product.price %></td>
+                <td><%= product.code %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
             </tr>
        <% }) %>
         </tbody>

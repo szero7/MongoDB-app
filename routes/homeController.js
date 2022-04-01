@@ -25,4 +25,13 @@ exports.getNew = (req, res)=>{
 
 exports.getSearch = (req, res)=>{
     res.render("search");
+};
+
+exports.getProducts = (req, res)=>{
+    Product.find({})
+    .then(resultat =>{
+        res.render("index", {data : resultat})
+    }).catch(error =>{
+        console.log(error);
+    });
 }
