@@ -19,8 +19,6 @@ exports.getIndex = (req, res) => {
 //         price: "test price"
 //     }];
 
-//     res.render("index", { title: "Product Database System", products: products });
-// };
 
 
 exports.addProduct = (req, res) => {
