@@ -36,4 +36,6 @@ exports.saveProduct = (req, res) => {
 };
 
 
-exports.findOneProduct = (req, res) => {};
+exports.findOneProduct = (req, res) => {
+    
+};
