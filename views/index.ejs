@@ -5,6 +5,7 @@
                 <th>Code</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +20,22 @@
                     <td>
                         <%= product.price %>
                     </td>
+                    <td>
+                        <a href="/edit/<%= product.id %>" class="btn btn-info">Edit</a>
+                        <form style="display: inline;" action="/delete/<%= product.id %>?_method=DELETE" method="POST">
+                            <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 <% }) %>
         </tbody>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
     </table>
 </div>
