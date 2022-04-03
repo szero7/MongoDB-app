@@ -12,14 +12,6 @@ exports.getIndex = (req, res) => {
         });
 };
 
-// exports.getIndex = (req, res) => {
-//     const products = [{
-//         code: "test code",
-//         description: "test description",
-//         price: "test price"
-//     }];
-
-
 
 exports.addProduct = (req, res) => {
     res.render("new", { title: "Add product", product: new Product() });
@@ -47,27 +39,3 @@ exports.saveProduct = (req, res) => {
 exports.findOneProduct = (req, res) => {
 
 };
-
-
-// exports.saveProduct = (req, res) =>{
-//     const code = req.body.code;
-//     const description = req.body.description;
-//     const price = req.body.price;
-
-//     const newProduct = new Product({code : code, description : description, price : price}); 
-//     newProduct.save()
-//     .then(()=>{
-//         res.render("index")
-//     })
-//     .catch((error)=>{
-//         console.log(error)
-//     })
-// };
-
-// exports.getNew = (req, res)=>{
-//     res.render("new");
-// };
-
-// exports.getSearch = (req, res)=>{
-//     res.render("search");
-// }
