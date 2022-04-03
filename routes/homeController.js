@@ -79,14 +79,14 @@ exports.searchForm = (req, res) => {
     res.render("search", { title: "Search product" });
 };
 
-// exports.giveResult = (req, res) => {
-//     let product = req.body;
-//     const searchByCode = { code: req.body.code };
-//     Product.find(searchByCode)
-//         .then(product => {
-//             res.render("result", { title: "Result", product: product });
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// };
+exports.giveResult = (req, res) => {
+    let product = req.body;
+    const searchByCode = { code: req.body.code };
+    Product.find(searchByCode)
+        .then(product => {
+            res.render("result", { title: "Result", product: product });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};
