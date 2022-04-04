@@ -71,8 +71,10 @@ exports.delete = (req, res) => {
     const searchQuery = { _id: req.params.id };
     Product.deleteOne(searchQuery)
         .then(() => {
+            req.flash("success_msg", "product deleted successfully");
             res.redirect("/");
         }).catch(error => {
+            req.flash("error_msg", `failed to delete product. ${error.message}`);
             res.redirect("/");
         });
 };
