@@ -14,7 +14,7 @@ router.put("/edit/:id", homeController.updateAndRedirect);
 router.delete("/delete/:id", homeController.delete);
 
 router.get("/search", homeController.searchForm);
-router.get("/result/:code", homeController.giveResult);
+router.get("/search/", homeController.giveResult);
 
 
 

@@ -14,7 +14,3 @@ tbody tr td:last-child>.btn {
 .menu {
     float: right;
 }
-
-td form {
-    display: inline;
-}

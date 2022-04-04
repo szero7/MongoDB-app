@@ -27,10 +27,11 @@ exports.saveAndRedirect = (req, res) => {
     });
     product.save()
         .then(product => {
+            req.flash("success_msg", "product added successfully");
             res.redirect("/");
         })
         .catch(error => {
-            console.log(error);
+            req.flash("error_msg", `failed to add product. ${error.message}`);
             res.render("new", { product: product });
         });
 };
@@ -56,10 +57,12 @@ exports.updateAndRedirect = (req, res) => {
                 price: req.body.price
             }
         }).then(product => {
+            req.flash("success_msg", "product updated successfully");
             res.redirect("/");
         })
         .catch(error => {
-            console.log(error);
+            req.flash("error_msg", `failed to update product. ${error.message}`);
+            res.redirect(`/edit/${product._id}`); //à vérifier
         });
 };
 
@@ -79,14 +82,15 @@ exports.searchForm = (req, res) => {
     res.render("search", { title: "Search product" });
 };
 
-// exports.giveResult = (req, res) => {
-//     let product = req.body;
-//     const searchByCode = { code: req.body.code };
-//     Product.find(searchByCode)
-//         .then(product => {
-//             res.render("result", { title: "Result", product: product });
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// };
+exports.giveResult = (req, res) => {
+
+    const searchByCode = { code: req.body.code };
+    Product.find(searchByCode)
+        .then(product => {
+            console.log(product.getInfos());
+            res.render("search", { title: "Result", product: product });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+};

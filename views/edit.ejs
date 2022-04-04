@@ -1,9 +1,9 @@
 <div>
     <form action="/edit/<%= product.id %>?_method=put" method="post" style="width: 50%; margin:auto"><br><br>
         <h2>Update Product Data</h2>
-        <input name="code" value="<%= product.code %>" type="text" class="form-control" placeholder="<%= product.code %>" required>
-        <input name="description" value="<%= product.description %>" type="text" class="form-control" placeholder="<%= product.description %>" required>
-        <input name="price" value="<%= product.price %>" type="text" class="form-control" placeholder="<%= product.price %>" required>
+        <input name="code" value="<%= product.code %>" type="text" id="code" class="form-control" placeholder="<%= product.code %>">
+        <input name="description" value="<%= product.description %>" type="text" id="description" class="form-control" placeholder="<%= product.description %>">
+        <input name="price" value="<%= product.price %>" type="text" id="price" class="form-control" placeholder="<%= product.price %>">
         <button style="background-color: aqua;" class="form-control" type="submit">Update Product</button>
     </form>
 </div>

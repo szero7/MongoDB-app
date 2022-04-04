@@ -1,41 +1,42 @@
 <div class="container mt-5">
     <table class="table  table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% products.forEach(product => { %>
+        <%- include("partials/messages") -%>
+            <thead>
                 <tr>
-                    <td>
-                        <%= product.code %>
-                    </td>
-                    <td>
-                        <%= product.description %>
-                    </td>
-                    <td>
-                        <%= product.price %>
-                    </td>
-                    <td>
-                        <a href="/edit/<%= product.id %>" class="btn btn-info">Edit</a>
-                        <form style="display: inline;" action="/delete/<%= product.id %>?_method=DELETE" method="POST">
-                            <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
-                        </form>
-                    </td>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Operations</th>
                 </tr>
-                <% }) %>
-        </tbody>
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Operations</th>
-            </tr>
-        </thead>
+            </thead>
+            <tbody>
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td>
+                            <%= product.code %>
+                        </td>
+                        <td>
+                            <%= product.description %>
+                        </td>
+                        <td>
+                            <%= product.price %>
+                        </td>
+                        <td>
+                            <a href="/edit/<%= product.id %>" class="btn btn-info">Edit</a>
+                            <form style="display: inline;" action="/delete/<%= product.id %>?_method=DELETE" method="POST">
+                                <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
     </table>
 </div>
