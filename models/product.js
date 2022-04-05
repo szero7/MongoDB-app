@@ -21,7 +21,7 @@ const productSchema = mongoose.Schema({
 });
 
 productSchema.methods.getInfos = function() {
-    return `Code: ${this.code}, Description: ${this.description}, Price: ${this.price}`;
+    return `Code: ${this.code} Description: ${this.description} Price: ${this.price}`;
 };
 
 

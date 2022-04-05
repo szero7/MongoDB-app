@@ -44,7 +44,7 @@ exports.edit = (req, res) => {
             res.render("edit", { title: "Edit product", product: product });
         })
         .catch(error => {
-            console.log(error);
+            res.redirect("/");
         });
 };
 
@@ -81,15 +81,18 @@ exports.delete = (req, res) => {
 
 
 exports.searchForm = (req, res) => {
-    res.render("search", { title: "Search product" });
+    res.render("search", { title: "Search product", product: "" });
 };
 
 exports.giveResult = (req, res) => {
-
+    const product = {
+        code: req.body.code,
+        description: req.body.description,
+        price: req.body.price
+    };
     const searchByCode = { code: req.body.code };
     Product.find(searchByCode)
         .then(product => {
-            console.log(product.getInfos());
             res.render("search", { title: "Result", product: product });
         })
         .catch(error => {
