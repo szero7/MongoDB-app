@@ -14,10 +14,12 @@ router.put("/edit/:id", homeController.updateAndRedirect);
 router.delete("/delete/:id", homeController.delete);
 
 router.get("/search", homeController.searchForm);
-router.get("/search/", homeController.giveResult);
+router.post("/search", homeController.giveResult);
 
 
 
+
+module.exports = router;
 
 
 

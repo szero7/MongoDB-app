@@ -1,35 +1,36 @@
 <div>
-    <form action="/search" method="get" style="width: 50%; margin:auto"><br><br><br>
+    <form action="/search" method="post" style="width: 50%; margin:auto"><br><br><br>
         <h2>Search Product</h2>
-        <input class="form-control" value="<%= product.code %>" name="code" id="code" text " placeholder="Product Code ">
-        <button style="background-color: aqua; " class="form-control " type="submit ">Search in Database</button>
+        <input class="form-control" name="code" id="code" type="text" placeholder="Product Code ">
+        <button style="background-color: aqua;" class="form-control" type="submit">Search in Database</button>
     </form>
 </div>
-<% if(!!product.code) {%>
-    <div>
-        <div class="container mt-5 ">
-            <table class="table table-bordered " width="100% " cellspacing="0 ">
-                <thead>
-                    <tr>
-                        <th> Code </th>
-                        <th> Description </th>
-                        <th> Price </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <%= product.code %>
-                        </td>
-                        <td>
-                            <%= product.description %>
-                        </td>
-                        <td>
-                            <%= product.price %>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div>
+    <%- include("partials/messages") -%>
+</div>
+<% if(product) {%>
+    <div class="container mt-5 ">
+        <table class="table table-bordered " width="100% " cellspacing="0 ">
+            <thead>
+                <tr>
+                    <th> Code </th>
+                    <th> Description </th>
+                    <th> Price </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <%= product.code %>
+                    </td>
+                    <td>
+                        <%= product.description %>
+                    </td>
+                    <td>
+                        <%= product.price %>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <%}%>
+    <% } %>

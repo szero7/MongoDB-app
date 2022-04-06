@@ -9,7 +9,7 @@ exports.getIndex = (req, res) => {
             res.render("index", { title: "Product Database System", products: product });
         })
         .catch(error => {
-            console.log(error);
+            res.redirect("/");
         });
 };
 
@@ -81,21 +81,21 @@ exports.delete = (req, res) => {
 
 
 exports.searchForm = (req, res) => {
-    res.render("search", { title: "Search product", product: "" });
+    res.render("search", { product: null });
 };
 
 exports.giveResult = (req, res) => {
-    const product = {
-        code: req.body.code,
-        description: req.body.description,
-        price: req.body.price
-    };
-    const searchByCode = { code: req.body.code };
-    Product.find(searchByCode)
+    const searchByCode = { code: req.query.code };
+    Product.findOne(searchByCode)
         .then(product => {
-            res.render("search", { title: "Result", product: product });
+            if (product) {
+                res.render("search", { product: product });
+            } else {
+                req.flash("error_msg", "product doesn't exist.");
+                res.redirect("/search");
+            }
         })
         .catch(error => {
-            console.log(error);
+            res.redirect("/");
         });
 };
