@@ -22,7 +22,7 @@
                             <%= product.price %>
                         </td>
                         <td>
-                            <a href="/edit/<%= product.id %>" class="btn btn-info">Edit</a>
+                            <a href="/edit/<%= product.id %>" class="btn btn-primary">Edit</a>
                             <form style="display: inline;" action="/delete/<%= product.id %>?_method=DELETE" method="POST">
                                 <button style="cursor: pointer;" type="submit" class="btn btn-danger ml-2">Delete</button>
                             </form>
