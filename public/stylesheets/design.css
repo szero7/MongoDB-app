@@ -10,3 +10,7 @@ a {
 tbody tr td:last-child>.btn {
     margin: 0.25rem 0.125rem;
 }
+
+input {
+    margin: 1rem 0;
+}
