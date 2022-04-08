@@ -1,9 +1,9 @@
-<div>
+<div id="new">
     <form action="/" method="post" style="width: 50%; margin:auto"><br><br>
         <h2>Add New Product </h2>
-        <input name="code" value="<%= product.code %>" type="text" id="code" class="form-control" placeholder="Product code">
-        <input name="description" value="<%= product.description %>" type="text" id="description" class="form-control" placeholder="Product description">
-        <input name="price" value="<%= product.price %>" type="text" id="price" class="form-control" placeholder="Product price">
+        <input name="code" value="<%= product.code %>" type="text" class="form-control" placeholder="Product code" required>
+        <input name="description" value="<%= product.description %>" type="text" class="form-control" placeholder="Product description" required>
+        <input name="price" value="<%= product.price %>" type="text" class="form-control" placeholder="Product price" required>
         <button style="background-color: aqua;" class="form-control" type="submit">Add to Database</button>
     </form>
 </div>

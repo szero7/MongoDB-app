@@ -27,11 +27,11 @@ exports.saveAndRedirect = (req, res) => {
     });
     product.save()
         .then(product => {
-            req.flash("success_msg", "product added successfully");
+            req.flash("success_msg", "Product data added to database successfully");
             res.redirect("/");
         })
         .catch(error => {
-            req.flash("error_msg", `failed to add product. ${error.message}`);
+            req.flash("error_msg", `Failed to add product data. ${error.message}`);
             res.render("new", { product: product });
         });
 };
@@ -57,11 +57,11 @@ exports.updateAndRedirect = (req, res) => {
                 price: req.body.price
             }
         }).then(product => {
-            req.flash("success_msg", "product updated successfully");
+            req.flash("success_msg", "Product data updated successfully");
             res.redirect("/");
         })
         .catch(error => {
-            req.flash("error_msg", `failed to update product. ${error.message}`);
+            req.flash("error_msg", `Failed to update product data. ${error.message}`);
             res.redirect(`/edit/${product._id}`); //à vérifier
         });
 };
@@ -71,7 +71,7 @@ exports.delete = (req, res) => {
     const searchQuery = { _id: req.params.id };
     Product.deleteOne(searchQuery)
         .then(() => {
-            req.flash("success_msg", "product deleted successfully");
+            req.flash("success_msg", "Product deleted successfully");
             res.redirect("/");
         }).catch(error => {
             req.flash("error_msg", `failed to delete product. ${error.message}`);
@@ -81,17 +81,17 @@ exports.delete = (req, res) => {
 
 
 exports.searchForm = (req, res) => {
-    res.render("search", { product: null });
+    res.render("search", { title: "Search product", product: null });
 };
 
 exports.giveResult = (req, res) => {
     const searchByCode = { code: req.query.code };
     Product.findOne(searchByCode)
         .then(product => {
-            if (product) {
-                res.render("search", { product: product });
+            if (!!product) {
+                res.render("search", { title: "Search result", product: product });
             } else {
-                req.flash("error_msg", "product doesn't exist.");
+                req.flash("error_msg", "Product does not exist with this name.");
                 res.redirect("/search");
             }
         })

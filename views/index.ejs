@@ -19,7 +19,7 @@
                             <%= product.description %>
                         </td>
                         <td>
-                            <%= product.price %>
+                            <%= product.price %> $
                         </td>
                         <td>
                             <a href="/edit/<%= product.id %>" class="btn btn-info">Edit</a>
@@ -30,13 +30,13 @@
                     </tr>
                     <% }) %>
             </tbody>
-            <thead>
+            <tfoot>
                 <tr>
                     <th>Code</th>
                     <th>Description</th>
                     <th>Price</th>
                     <th>Operations</th>
                 </tr>
-            </thead>
+            </tfoot>
     </table>
 </div>
